@@ -131,8 +131,8 @@ export default function ComparisonResults() {
           </div>
 
           <div style={styles.delta}>
-            <p style={{...styles.deltaLabel, color: comp.placement_performance.delta > 0 ? '#28a745' : '#d21034'}}>
-              {comp.placement_performance.delta > 0 ? '↑' : '↓'} {Math.abs(comp.placement_performance.delta_percentage).toFixed(1)}%
+            <p style={{...styles.deltaLabel, color: comp.placement_performance.delta >= 0 ? '#28a745' : '#d21034'}}>
+              {comp.placement_performance.delta > 0 ? '↑' : comp.placement_performance.delta < 0 ? '↓' : '='} {Math.abs(comp.placement_performance.delta_percentage).toFixed(1)}%
             </p>
           </div>
 
@@ -167,8 +167,8 @@ export default function ComparisonResults() {
           </div>
 
           <div style={styles.delta}>
-            <p style={{...styles.deltaLabel, color: comp.satisfaction.delta > 0 ? '#28a745' : '#d21034'}}>
-              {comp.satisfaction.delta > 0 ? '↑' : '↓'} {Math.abs(comp.satisfaction.delta * 100).toFixed(1)}%
+            <p style={{...styles.deltaLabel, color: comp.satisfaction.delta >= 0 ? '#28a745' : '#d21034'}}>
+              {comp.satisfaction.delta > 0 ? '↑' : comp.satisfaction.delta < 0 ? '↓' : '='} {Math.abs(comp.satisfaction.delta * 100).toFixed(1)}%
             </p>
           </div>
 
