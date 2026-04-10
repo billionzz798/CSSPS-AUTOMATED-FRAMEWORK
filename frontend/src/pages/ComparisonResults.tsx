@@ -131,7 +131,7 @@ export default function ComparisonResults() {
           </div>
 
           <div style={styles.delta}>
-            <p style={{...styles.deltaLabel, color: '#28a745'}}>
+            <p style={{...styles.deltaLabel, color: comp.placement_performance.delta > 0 ? '#28a745' : '#d21034'}}>
               {comp.placement_performance.delta > 0 ? '↑' : '↓'} {Math.abs(comp.placement_performance.delta_percentage).toFixed(1)}%
             </p>
           </div>
@@ -167,7 +167,7 @@ export default function ComparisonResults() {
           </div>
 
           <div style={styles.delta}>
-            <p style={{...styles.deltaLabel, color: '#28a745'}}>
+            <p style={{...styles.deltaLabel, color: comp.satisfaction.delta > 0 ? '#28a745' : '#d21034'}}>
               {comp.satisfaction.delta > 0 ? '↑' : '↓'} {Math.abs(comp.satisfaction.delta * 100).toFixed(1)}%
             </p>
           </div>
@@ -185,9 +185,9 @@ export default function ComparisonResults() {
 
         <div style={styles.subMetrics}>
           <p><strong>Improved candidates:</strong> <span style={{fontSize: '18px', fontWeight: '700', color: '#28a745'}}>{comp.satisfaction.improved_choice_rank}</span></p>
-          <p><strong>Degraded candidates:</strong> <span style={{fontSize: '18px', fontWeight: '700', color: '#28a745'}}>{comp.satisfaction.degraded_choice_rank}</span></p>
+          <p><strong>Degraded candidates:</strong> <span style={{fontSize: '18px', fontWeight: '700', color: '#d21034'}}>{comp.satisfaction.degraded_choice_rank}</span></p>
           <p><strong>Newly placed:</strong> <span style={{fontSize: '18px', fontWeight: '700', color: '#28a745'}}>{comp.satisfaction.newly_placed}</span></p>
-          <p><strong>Newly unplaced:</strong> <span style={{fontSize: '18px', fontWeight: '700', color: '#28a745'}}>{comp.satisfaction.newly_unplaced}</span></p>
+          <p><strong>Newly unplaced:</strong> <span style={{fontSize: '18px', fontWeight: '700', color: '#d21034'}}>{comp.satisfaction.newly_unplaced}</span></p>
         </div>
       </div>
 
@@ -295,16 +295,16 @@ function getEquityItemStyle(delta: number): React.CSSProperties {
   if (delta >= 0.02) return { background: 'rgba(34, 134, 58, 0.12)', borderColor: 'rgba(34, 134, 58, 0.3)' } // Strong improvement - dark green
   if (delta >= 0.005) return { background: 'rgba(76, 175, 80, 0.12)', borderColor: 'rgba(76, 175, 80, 0.3)' } // Good improvement - green
   if (delta >= -0.005) return { background: 'rgba(76, 175, 80, 0.12)', borderColor: 'rgba(76, 175, 80, 0.3)' } // Neutral - green
-  if (delta >= -0.02) return { background: 'rgba(76, 175, 80, 0.12)', borderColor: 'rgba(76, 175, 80, 0.3)' }   // Minor decline - green
-  return { background: 'rgba(76, 175, 80, 0.12)', borderColor: 'rgba(76, 175, 80, 0.3)' }                       // Positive green
+  if (delta >= -0.02) return { background: 'rgba(255, 193, 7, 0.12)', borderColor: 'rgba(255, 193, 7, 0.3)' }   // Minor decline - orange
+  return { background: 'rgba(210, 16, 52, 0.12)', borderColor: 'rgba(210, 16, 52, 0.3)' }                       // Significant decline - red
 }
 
 function getEquityTextColor(delta: number): string {
   if (delta >= 0.02) return '#22863a'   // Strong improvement - dark green
   if (delta >= 0.005) return '#28a745'  // Good improvement - green
   if (delta >= -0.005) return '#28a745' // Neutral - green
-  if (delta >= -0.02) return '#28a745'  // Minor decline - green
-  return '#28a745'                      // Positive green
+  if (delta >= -0.02) return '#ffc107'  // Minor decline - orange
+  return '#d21034'                      // Significant decline - red
 }
 
 const styles: Record<string, React.CSSProperties> = {
