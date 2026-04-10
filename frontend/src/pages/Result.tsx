@@ -121,29 +121,29 @@ export default function Result() {
             <p style={styles.sectionIntro}>Overview of how many candidates were placed and how quickly the run finished.</p>
             <div style={styles.metricsGrid}>
               <div style={styles.metricCard}>
-                <span style={styles.metricValue}>{summary.total_candidates.toLocaleString()}</span>
+                <span style={{...styles.metricValue, color: 'var(--text)'}}>{summary.total_candidates.toLocaleString()}</span>
                 <span style={styles.metricLabel}>Total candidates</span>
               </div>
               <div style={styles.metricCard}>
-                <span style={styles.metricValue}>{summary.placed_count.toLocaleString()}</span>
+                <span style={{...styles.metricValue, color: '#28a745'}}>{summary.placed_count.toLocaleString()}</span>
                 <span style={styles.metricLabel}>Placed in a school</span>
               </div>
               <div style={styles.metricCard}>
-                <span style={styles.metricValue}>{summary.unplaced_count.toLocaleString()}</span>
+                <span style={{...styles.metricValue, color: '#d21034'}}>{summary.unplaced_count.toLocaleString()}</span>
                 <span style={styles.metricLabel}>Not placed</span>
               </div>
               <div style={styles.metricCard}>
-                <span style={styles.metricValue}>{(summary.placement_rate * 100).toFixed(1)}%</span>
+                <span style={{...styles.metricValue, color: '#28a745'}}>{(summary.placement_rate * 100).toFixed(1)}%</span>
                 <span style={styles.metricLabel}>Placement rate</span>
               </div>
               <div style={styles.metricCard}>
-                <span style={styles.metricValue}>
+                <span style={{...styles.metricValue, color: '#28a745'}}>
                   {summary.first_choice_rate != null ? `${(summary.first_choice_rate * 100).toFixed(1)}%` : '–'}
                 </span>
                 <span style={styles.metricLabel}>Got 1st choice school</span>
               </div>
               <div style={styles.metricCard}>
-                <span style={styles.metricValue}>
+                <span style={{...styles.metricValue, color: 'var(--text)'}}>
                   {summary.duration_seconds != null ? `${summary.duration_seconds} sec` : '–'}
                 </span>
                 <span style={styles.metricLabel}>Time taken</span>
@@ -361,7 +361,7 @@ const styles: Record<string, React.CSSProperties> = {
     boxShadow: '0 8px 24px rgba(0, 0, 0, 0.1)',
     transition: 'all 0.2s ease',
   },
-  metricValue: { display: 'block', fontSize: 32, fontWeight: 900, marginBottom: 10, background: 'linear-gradient(90deg, #D21034 0%, #006A3D 100%)', backgroundClip: 'text', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent' },
+  metricValue: { display: 'block', fontSize: 32, fontWeight: 900, marginBottom: 10 },
   metricLabel: { fontSize: 14, color: 'var(--text-muted)', fontWeight: 700 },
   fairnessGrid: { display: 'flex', flexDirection: 'column', gap: 14, maxWidth: 520 },
   fairnessItem: { display: 'flex', justifyContent: 'space-between', alignItems: 'center', padding: '20px 24px', borderRadius: 8, border: '2.5px solid rgba(210, 16, 52, 0.2)', transition: 'all 0.2s ease', background: 'linear-gradient(135deg, #ffffff 0%, #f8fbfc 100%)' },
