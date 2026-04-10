@@ -120,13 +120,13 @@ export default function ComparisonResults() {
             <h3 style={styles.frameworkName}>GES Baseline</h3>
             <div style={styles.metric}>
               <span style={styles.metricLabel}>Placement Rate:</span>
-              <span style={styles.metricValue}>
+              <span style={{...styles.metricValue, color: '#28a745'}}>
                 {((result.baseline.metrics as any).placement_rate * 100).toFixed(2)}%
               </span>
             </div>
             <div style={styles.metric}>
               <span style={styles.metricLabel}>Processing Time:</span>
-              <span style={styles.metricValue}>{result.baseline.duration_seconds.toFixed(3)}s</span>
+              <span style={{...styles.metricValue, color: 'var(--text)'}}>{result.baseline.duration_seconds.toFixed(3)}s</span>
             </div>
           </div>
 
@@ -140,13 +140,13 @@ export default function ComparisonResults() {
             <h3 style={styles.frameworkName}>Automated Framework</h3>
             <div style={styles.metric}>
               <span style={styles.metricLabel}>Placement Rate:</span>
-              <span style={styles.metricValue}>
+              <span style={{...styles.metricValue, color: '#28a745'}}>
                 {((result.automated.metrics as any).placement_rate * 100).toFixed(2)}%
               </span>
             </div>
             <div style={styles.metric}>
               <span style={styles.metricLabel}>Processing Time:</span>
-              <span style={styles.metricValue}>{result.automated.duration_seconds.toFixed(3)}s</span>
+              <span style={{...styles.metricValue, color: 'var(--text)'}}>{result.automated.duration_seconds.toFixed(3)}s</span>
             </div>
           </div>
         </div>
@@ -160,7 +160,7 @@ export default function ComparisonResults() {
             <h3 style={styles.frameworkName}>GES Baseline</h3>
             <div style={styles.metric}>
               <span style={styles.metricLabel}>First-Choice Rate:</span>
-              <span style={styles.metricValue}>
+              <span style={{...styles.metricValue, color: '#28a745'}}>
                 {(comp.satisfaction.baseline_first_choice_rate * 100).toFixed(2)}%
               </span>
             </div>
@@ -176,7 +176,7 @@ export default function ComparisonResults() {
             <h3 style={styles.frameworkName}>Automated Framework</h3>
             <div style={styles.metric}>
               <span style={styles.metricLabel}>First-Choice Rate:</span>
-              <span style={styles.metricValue}>
+              <span style={{...styles.metricValue, color: '#28a745'}}>
                 {(comp.satisfaction.framework_first_choice_rate * 100).toFixed(2)}%
               </span>
             </div>
@@ -447,10 +447,7 @@ const styles: Record<string, React.CSSProperties> = {
   metricValue: {
     fontWeight: '900',
     fontSize: '19px',
-    background: 'linear-gradient(90deg, #D21034 0%, #006A3D 100%)',
-    backgroundClip: 'text',
-    WebkitBackgroundClip: 'text',
-    WebkitTextFillColor: 'transparent',
+    color: 'var(--text)',
   },
   delta: {
     textAlign: 'center',
