@@ -1,0 +1,182 @@
+:root {
+  /* Ghana-themed palette - vibrant and bright */
+  --gh-red: #D21034; /* flag red */
+  --gh-yellow: #FFD100; /* flag yellow/gold */
+  --gh-green: #006A3D; /* flag green */
+  --gh-black: #000000; /* flag star / accents */
+  --gh-dark-green: #004a2e;
+  --gh-light-green: #00a651;
+  --gh-warm-orange: #FF8C42; /* warm orange for accents */
+  --gh-deep-red: #A91B0D; /* deeper red */
+  --gh-sky-blue: #E8F4F9; /* bright sky blue */
+
+  --bg: #f0f8fc; /* Bright sky blue background */
+  --bg-pattern: #e8f4f9; /* Light sky blue pattern */
+  --surface: #ffffff; /* Pure white cards/panels */
+  --surface2: #f8fbfd; /* Barely tinted surface */
+  --surface3: #f0f8fc; /* Light blue surface */
+  --border: #d0e8f2; /* Bright blue borders */
+  --text: #1a202c; /* Dark text for readability */
+  --text-muted: #5a6b7a; /* Gray for secondary text */
+  --accent: var(--gh-green);
+  --accent-dim: #005432;
+  --accent-light: #e8f5f0;
+  --gold: var(--gh-yellow);
+  --gold-dim: #f5c94a;
+  --danger: #e74c3c;
+  --success: #27ae60;
+  --radius: 12px;
+  --radius-lg: 16px;
+  --font-sans: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
+  --font-mono: 'Monaco', 'Menlo', 'Ubuntu Mono', monospace;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  background: linear-gradient(135deg, #ffffff 0%, #f5f9fb 50%, #eef5f8 100%);
+  color: var(--text);
+  font-family: var(--font-sans);
+  font-size: 15px;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  position: relative;
+}
+
+body::before {
+  content: '';
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: 
+    /* Ghana flag stripes - visible but not intrusive */
+    linear-gradient(90deg, rgba(210, 16, 52, 0.09) 0%, rgba(210, 16, 52, 0.09) 33.33%, rgba(255, 209, 0, 0.09) 33.33%, rgba(255, 209, 0, 0.09) 66.66%, rgba(0, 106, 61, 0.09) 66.66%, rgba(0, 106, 61, 0.09) 100%),
+    /* Subtle vertical Ghana accent */
+    linear-gradient(180deg, rgba(210, 16, 52, 0.04) 0%, rgba(0, 106, 61, 0.04) 50%, rgba(255, 209, 0, 0.03) 100%),
+    /* Minimal Kente-inspired patterns */
+    repeating-linear-gradient(45deg, transparent, transparent 25px, rgba(0, 106, 61, 0.03) 25px, rgba(0, 106, 61, 0.03) 50px),
+    repeating-linear-gradient(-45deg, transparent, transparent 25px, rgba(210, 16, 52, 0.03) 25px, rgba(210, 16, 52, 0.03) 50px),
+    /* Soft corner accents */
+    radial-gradient(circle 1500px at 3% 3%, rgba(0, 106, 61, 0.05), transparent),
+    radial-gradient(circle 1300px at 97% 97%, rgba(210, 16, 52, 0.04), transparent);
+  pointer-events: none;
+  z-index: -1;
+}
+
+#root {
+  min-height: 100vh;
+}
+
+a {
+  color: var(--accent);
+  text-decoration: none;
+  font-weight: 500;
+  transition: color 0.2s ease;
+}
+a:hover {
+  color: #005a36;
+  text-decoration: underline;
+}
+
+input:focus, 
+select:focus, 
+textarea:focus {
+  outline: none;
+  border-color: var(--accent);
+  box-shadow: 0 0 0 3px rgba(0, 106, 61, 0.1);
+}
+
+button {
+  font-family: var(--font-sans);
+  cursor: pointer;
+  padding: 11px 20px;
+  border: none;
+  border-radius: 8px;
+  font-weight: 600;
+  font-size: 14px;
+  letter-spacing: 0.3px;
+  transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+  background: linear-gradient(135deg, var(--gh-green) 0%, #005a36 100%);
+  color: white;
+  box-shadow: 0 3px 8px rgba(0, 106, 61, 0.2), 0 0 1px rgba(0, 0, 0, 0.05);
+}
+
+button:hover {
+  background: linear-gradient(135deg, #005a36 0%, var(--gh-dark-green) 100%);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 16px rgba(0, 106, 61, 0.3), 0 0 1px rgba(0, 0, 0, 0.05);
+}
+
+button:active {
+  transform: translateY(0);
+  box-shadow: 0 2px 4px rgba(0, 106, 61, 0.15);
+}
+
+button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+  transform: none;
+}
+
+button:focus {
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(0, 106, 61, 0.1), 0 3px 8px rgba(0, 106, 61, 0.2);
+}
+
+input, select, textarea {
+  font-family: var(--font-sans);
+}
+
+code, .mono {
+  font-family: var(--font-mono);
+  font-size: 0.9em;
+}
+
+.card-link {
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.card-link:hover {
+  border-color: var(--gh-red) !important;
+  background: linear-gradient(135deg, rgba(210, 16, 52, 0.04), rgba(255, 209, 0, 0.05)) !important;
+  transform: translateY(-6px);
+  box-shadow: 0 16px 32px rgba(210, 16, 52, 0.2), 0 0 1px rgba(0, 0, 0, 0.05);
+}
+
+.section-title {
+  position: relative;
+  padding-bottom: 12px;
+  margin-bottom: 24px;
+  background: linear-gradient(90deg, #D21034 0%, #006A3D 50%, #FFD100 100%);
+  backgroundClip: 'text';
+  WebkitBackgroundClip: 'text';
+  WebkitTextFillColor: 'transparent';
+}
+
+@media (max-width: 768px) {
+  body {
+    font-size: 14px;
+  }
+
+  button {
+    padding: 8px 12px;
+    font-size: 13px;
+  }
+}
+
+@media (max-width: 480px) {
+  body {
+    font-size: 13px;
+  }
+}
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
