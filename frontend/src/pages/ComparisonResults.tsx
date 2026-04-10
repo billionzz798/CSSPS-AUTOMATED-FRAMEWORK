@@ -457,10 +457,6 @@ const styles: Record<string, React.CSSProperties> = {
     fontSize: '36px',
     fontWeight: '900',
     margin: 0,
-    background: 'linear-gradient(90deg, #FFD100 0%, #FF8C42 100%)',
-    backgroundClip: 'text',
-    WebkitBackgroundClip: 'text',
-    WebkitTextFillColor: 'transparent',
   },
   subMetrics: {
     display: 'grid',
@@ -500,10 +496,6 @@ const styles: Record<string, React.CSSProperties> = {
   equityDelta: {
     fontWeight: '900',
     fontSize: '17px',
-    background: 'linear-gradient(90deg, #D21034 0%, #006A3D 100%)',
-    backgroundClip: 'text',
-    WebkitBackgroundClip: 'text',
-    WebkitTextFillColor: 'transparent',
   },
   summary: {
     fontSize: '16px',
